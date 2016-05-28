@@ -12,7 +12,7 @@ var UserSchema = new mongoose.Schema({
   //comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }]
 })
 var User = mongoose.model('User', UserSchema)
-mongoose.connect('mongodb://localhost/news')
+mongoose.connect('mongodb://localhost/abc')
 
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true }))
