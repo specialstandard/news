@@ -15,12 +15,23 @@ angular.module('app', ['ngRoute'])
   }])
 
   .controller('HomeController', ['$scope', '$http', function($scope, $http){
-
-      $http.get("api/movies")
+    //$scope.page = 0;
+    var obj = {page: $scope.page}
+      $http.post("api/movies", JSON.stringify(obj))
         .then(function(res) {
           console.log(res.data)
-          $scope.movieList = res.data
+          $scope.movieList = res.data.movieList
+          console.log($scope.movieList[2])
       })
+    $scope.onClickNext = function(){
+      var obj = {page: parseInt($scope.page)}
+        $http.post("api/movies", JSON.stringify(obj))
+        .then(function(res) {
+          console.log(res.data)
+          $scope.movieList = res.data.movieList
+          $scope.page = res.data.page
+      })
+    }
   }])
 
   .controller('AboutController', ['$scope', '$http', function($scope, $http){

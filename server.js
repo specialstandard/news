@@ -19,11 +19,12 @@ mongoose.connect('mongodb://52.40.114.1/abc')
 
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true }))
-
-var movieUrl = 'https://thepiratebay.org/browse/201/0/7/0'
 //returns list of movies
 var movieList = []
-app.get('/api/movies', function(req, res, next) {
+app.post('/api/movies', function(req, res, next) {
+  console.log(req.body.page)
+  var page = req.body.page || 0
+  var movieUrl = 'https://thepiratebay.org/browse/201/' + page + '/7/0'
 
   request(movieUrl, function(err, response, html){
     if(!err){
@@ -35,8 +36,9 @@ app.get('/api/movies', function(req, res, next) {
         if (k === "prev" || k === "next" || k === "parent") return undefined;
         return v;
       })
-      console.log(movieList)
-      res.send(movieList)
+      var objResponse = {page: +page + 1, movieList: JSON.parse(movieList)}
+      console.log(objResponse)
+      res.send(objResponse)
     }
   })
 
