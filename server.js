@@ -7,7 +7,7 @@ var mongoose = require('mongoose')
 var UserSchema = new mongoose.Schema({
   name: String,
   title: String,
-  //link: String,
+  //link: String, 
   //upvotes: {type: Number, default: 0},
   //comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }]
 })
