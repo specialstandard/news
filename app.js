@@ -15,19 +15,12 @@ angular.module('app', ['ngRoute'])
   }])
 
   .controller('HomeController', ['$scope', '$http', function($scope, $http){
-    $scope.x = 'fart'
-    $scope.onSubmitForm1 = function(){
-      var obj = {
-        name: $scope.name,
-        title: $scope.title
-      }
-      $http.post("api/post", JSON.stringify(obj))
-        .then(function(res) {
-          console.log(obj)
 
+      $http.get("api/movies")
+        .then(function(res) {
           console.log(res.data)
+          $scope.movieList = res.data
       })
-    }
   }])
 
   .controller('AboutController', ['$scope', '$http', function($scope, $http){

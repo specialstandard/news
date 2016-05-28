@@ -1,11 +1,7 @@
 
-<div class="container">This is the Home controller 
-  <form name="form1">
-    <p>name</p>
-    <input type="text" ng-model="name" required="required"/>
-    <p>title</p>
-    <input type="text" ng-model="title" required="required"/>
-    <hr/>
-    <button ng-click="onSubmitForm1()" ng-disabled="form1.$invalid" class="btn-response btn-success">Submit</button>
-  </form>
+<div class="container">
+  <h2>movies</h2>
+  <div ng-repeat="item in movieList" class="list"> 
+    <p>{{item.children[0].data}}</p>
+  </div>
 </div>

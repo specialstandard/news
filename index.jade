@@ -11,10 +11,4 @@ html(ng-app="app" ng-controller="MainController")
   body
     .container
       .row
-        .column-sm-12
-          .parent
-            .child Hello
-              a.btn.btn-lg.btn-info.btn-response(href = "#/") Home
-              a.btn.btn-lg.btn-danger.btn-response(href = "#/about") About
-
-              ng-view
+        ng-view

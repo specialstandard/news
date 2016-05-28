@@ -1,8 +1,5 @@
-.container This is the Home controller 
-  form(name="form1")
-    p name
-    input(type="text" ng-model="name" required)
-    p title
-    input(type="text" ng-model="title" required)
-    hr
-    button.btn-response.btn-success(ng-click="onSubmitForm1()" ng-disabled="form1.$invalid") Submit
+.container
+  h2 movies
+  .list(ng-repeat="item in movieList") 
+    p {{item.children[0].data}}
+  
