@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="app" ng-controller="MainController">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-route/angular-route.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="column-sm-12">
+          <div class="parent">
+            <div class="child">Hello<a href="#/" class="btn btn-lg btn-info btn-response">Home</a><a href="#/about" class="btn btn-lg btn-danger btn-response">About</a>
+              <ng-view></ng-view>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
