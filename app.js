@@ -21,9 +21,11 @@ angular.module('app', ['ngRoute'])
         .then(function(res) {
           console.log(res.data)
           $scope.movieList = res.data.movieList
+          $scope.page = res.data.page
           console.log($scope.movieList[2])
       })
     $scope.onClickNext = function(){
+      $('html, body').animate({scrollTop: '0px'}, 0);
       var obj = {page: parseInt($scope.page)}
         $http.post("api/movies", JSON.stringify(obj))
         .then(function(res) {
