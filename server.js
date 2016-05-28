@@ -17,14 +17,14 @@ mongoose.connect('mongodb://localhost/abc')
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true }))
 
-app.get('/api/posts', function(req, res, next) {
+app.get('api/posts', function(req, res, next) {
   User.find( function(err, data){
     if(err) { return next(err); }
     res.json(data);
   });
 });
 
-app.post('/api/post', function(req, res, next) {
+app.post('api/post', function(req, res, next) {
   console.log(req.body)
   var thisPost = new User( req.body)
   thisPost.save( function(err, data){
@@ -33,7 +33,7 @@ app.post('/api/post', function(req, res, next) {
   });
 });
 
-app.post('/api/delete', function(req, res, next) {
+app.post('api/delete', function(req, res, next) {
   console.log(req.body)
   var thisPost = new User( req.body)
   thisPost.remove( function(err, data){
