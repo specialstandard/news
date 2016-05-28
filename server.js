@@ -44,4 +44,4 @@ app.post('api/delete', function(req, res, next) {
 
 app.use(logger('dev'));
 app.use('/', express.static(__dirname))
-app.listen(8080, function() { console.log('listening')})
+app.listen(3001, function() { console.log('listening')})
